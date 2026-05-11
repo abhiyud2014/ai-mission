@@ -214,7 +214,10 @@ section{padding:90px 0}
 .phases-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
 .phases-wrap::before{content:'';position:absolute;top:38px;left:calc(25% - 1px);right:calc(25% - 1px);height:1.5px;background:linear-gradient(90deg,var(--saffron),var(--green));z-index:0}
 .phase{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);padding:0;overflow:hidden;box-shadow:var(--shadow-sm);margin:0 8px;position:relative;z-index:1}
+.phase[data-img]{cursor:pointer}
 .phase-head{padding:16px 20px;text-align:center}
+.phase-head .card-view{margin-left:auto;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:6px 12px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.95);letter-spacing:.3px;white-space:nowrap;transition:background .2s}
+.phase[data-img]:hover .card-view{background:rgba(255,255,255,.18)}
 .phase-head.d1{background:var(--navy)}
 .phase-head.d2{background:#4A3B8C}
 .phase-head.d3{background:#1E7A52}
@@ -679,10 +682,11 @@ footer{background:var(--navy);padding:40px 0;border-top:1px solid rgba(255,255,2
       <p>A structured, professional working model designed for low risk, high alignment with Odisha AI Mission, and measurable outcomes at every phase.</p>
     </div>
     <div class="phases-wrap">
-      <div class="phase reveal">
+      <div class="phase reveal" data-img="Engagement Model-1.png">
         <div class="phase-head d1">
           <div class="phase-dot"></div>
           <h3>Phase 1 — Discovery</h3>
+          <span class="card-view">⤢ View</span>
         </div>
         <div class="phase-body">
           <div class="phase-deliv">Purpose</div>
@@ -693,10 +697,11 @@ footer{background:var(--navy);padding:40px 0;border-top:1px solid rgba(255,255,2
           <span class="phase-tag">Gap Analysis</span>
         </div>
       </div>
-      <div class="phase reveal reveal-delay-1">
+      <div class="phase reveal reveal-delay-1" data-img="Engagement Model-2.png">
         <div class="phase-head d2">
           <div class="phase-dot"></div>
           <h3>Phase 2 — Co-design</h3>
+          <span class="card-view">⤢ View</span>
         </div>
         <div class="phase-body">
           <div class="phase-deliv">Purpose</div>
@@ -707,10 +712,11 @@ footer{background:var(--navy);padding:40px 0;border-top:1px solid rgba(255,255,2
           <span class="phase-tag">Pilot Scope</span>
         </div>
       </div>
-      <div class="phase reveal reveal-delay-2">
+      <div class="phase reveal reveal-delay-2" data-img="Engagement Model-3.png">
         <div class="phase-head d3">
           <div class="phase-dot"></div>
           <h3>Phase 3 — Pilot</h3>
+          <span class="card-view">⤢ View</span>
         </div>
         <div class="phase-body">
           <div class="phase-deliv">Purpose</div>
@@ -721,10 +727,11 @@ footer{background:var(--navy);padding:40px 0;border-top:1px solid rgba(255,255,2
           <span class="phase-tag">Adoption Score</span>
         </div>
       </div>
-      <div class="phase reveal reveal-delay-3">
+      <div class="phase reveal reveal-delay-3" data-img="Engagement Model-4.png">
         <div class="phase-head d4">
           <div class="phase-dot"></div>
           <h3>Phase 4 — Scale</h3>
+          <span class="card-view">⤢ View</span>
         </div>
         <div class="phase-body">
           <div class="phase-deliv">Purpose</div>
@@ -1237,7 +1244,7 @@ footer{background:var(--navy);padding:40px 0;border-top:1px solid rgba(255,255,2
     updateModalTransform();
   }
 
-  document.querySelectorAll('.uc-card[data-img], .pillar[data-img]').forEach(function(card){
+  document.querySelectorAll('.uc-card[data-img], .pillar[data-img], .phase[data-img]').forEach(function(card){
     var src = card.getAttribute('data-img');
 
     // HOVER: show preview near cursor
@@ -1521,9 +1528,88 @@ footer{background:var(--navy);padding:40px 0;border-top:1px solid rgba(255,255,2
     <div class="container">
       <div class="section-intro"><div class="slide-tag">Common Questions</div><h2>Common Questions & Objections</h2><p class="reveal">Answers to frequent questions from decision-makers.</p></div>
       <div style="max-width:900px;margin:0 auto">
-        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px"><button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">Why not just hire a training vendor?</button><div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">Training vendors often deliver one-off workshops. Our approach builds a repeatable implementation model with measurement and replication.</div></div>
-        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px"><button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">How is this different from existing programmes?</button><div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">We combine enterprise AI delivery, academic credibility, and on-ground execution to move from awareness to adoption.</div></div>
-        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px"><button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">What KPIs will you measure?</button><div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">Adoption score, usage frequency, teacher confidence, time-saved in departmental workflows and replication-readiness.</div></div>
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">Why not just hire a training vendor?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">Because this is not only about training—it is about statewide AI enablement. Training vendors usually deliver one-time sessions. We focus on institutional readiness, pilot implementation, adoption measurement, and long-term scale through curriculum support, department pilots, and governance alignment.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">How is this different from existing programmes?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">Most existing programmes are awareness-led. Our model combines awareness + implementation + measurable outcomes through Discovery → Co-design → Pilot → Scale. We work on actual government use cases, not only workshops.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">What KPIs will you measure?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">
+            <ul style="padding-left:18px;margin:0">
+              <li>Teachers trained</li>
+              <li>Officers enabled</li>
+              <li>Pilot institutions onboarded</li>
+              <li>AI adoption score</li>
+              <li>Workflow efficiency improvement</li>
+              <li>Citizen service improvement</li>
+              <li>Department-level use cases activated</li>
+              <li>Time reduction in repetitive processes</li>
+              <li>Student participation and AI literacy indicators</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">How will this work in rural and low-resource schools?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">We use Odia-friendly, mobile-first, low-bandwidth learning models with practical activity-based modules. The model is designed specifically for government schools, rural districts, and underserved communities—not only urban institutions.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">Will this require expensive infrastructure?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">Not necessarily. We start with existing infrastructure and low-cost scalable models. Pilot-first execution helps validate value before larger investments in compute, labs, or platforms.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">How do we ensure teachers and officers actually adopt it?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">We focus on practical usability, not theory. Hands-on sessions, Train-the-Trainer models, department pilots, and human-in-the-loop systems ensure adoption through usefulness, not compulsion.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">How will data privacy and security be handled?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">All solutions follow responsible AI principles: <ul style="padding-left:18px;margin:0"><li>Human review and approval</li><li>Secure access controls</li><li>Data governance alignment</li><li>Department-level policy compliance</li><li>Safe usage protocols</li><li>No uncontrolled public AI exposure for sensitive workflows</li></ul></div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">Can this align with Odisha AI Mission 2025?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">Yes—this is directly aligned. It supports AI in Education, Computational Thinking, AI Skills Development, Inclusive AI Access, and Government AI Readiness—fully supporting Odisha AI Mission priorities.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">Which departments should start first?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">We recommend starting with departments having high document workflows and citizen interaction, such as: <ul style="padding-left:18px;margin:0"><li>Higher Education</li><li>School & Mass Education</li><li>IT Department</li><li>Urban Development</li><li>Skill Development</li><li>District Administration</li></ul>These provide strong quick-win opportunities.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">How long will the pilot take?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">A focused pilot can typically be completed in 60–90 days depending on scope. The objective is fast validation, measurable outcomes, and clear decision-making for scale.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">How will this scale across Odisha?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">We use a replication model: Pilot District → Multi-District Expansion → Statewide Rollout. Supported by dashboards, governance frameworks, curriculum models, and institutional ownership.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">What support do you need from the Government?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">We primarily need: <ul style="padding-left:18px;margin:0"><li>Pilot district / department identification</li><li>Nodal officer support</li><li>Department coordination</li><li>Institutional access for workshops</li><li>Policy sponsorship for pilot execution</li></ul>The goal is partnership, not vendor dependency.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">Will AI replace teachers or officers?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">No. AI is designed to assist—not replace. Teachers become more effective educators. Officers gain better decision support and workflow efficiency. Human judgment remains central.</div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--gray-100);border-radius:12px;padding:12px;margin-bottom:8px">
+          <button class="faq-q" style="width:100%;text-align:left;padding:12px;border:none;background:transparent;font-weight:700">Why should Odisha act now?</button>
+          <div class="faq-a" style="display:none;padding:12px;color:var(--text-secondary)">Because AI literacy is becoming foundational literacy. Delaying adoption increases the urban-rural readiness gap. Early action helps Odisha build inclusive, future-ready education and governance systems.</div>
+        </div>
+
       </div>
     </div>`;
   document.getElementById('seek')?.after(faq);
